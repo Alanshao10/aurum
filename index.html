@@ -1,1 +1,440 @@
-<!doctype html><meta charset=utf-8><title>Aurum</title><p>Скоро</p>
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aurum: салон красоты и барбершоп в Ташкенте</title>
+<meta name="description" content="Aurum Go'zallik Saloni: женский салон и барбершоп в Ташкенте, Буюк Ипак Йули, 475.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;700&family=Oswald:wght@400;500&display=swap&subset=cyrillic,latin-ext" rel="stylesheet">
+
+<!-- Сайт: студия Дастгир -->
+<style>
+
+:root{
+  --bg:#0D0C0A; --surface:#16140F; --surface-2:#1E1B14;
+  --ink:#F2ECDF; --muted:#B7AE9C; --line:rgba(207,163,73,.28);
+  --accent:#CFA349; --on-accent:#15110A; --accent-ink:#E2BE6E;
+  --door-ink:#FBF6EC; --shade:rgba(9,8,6,.82); --shade-soft:rgba(9,8,6,.18);
+  --photo-filter:saturate(1.08) contrast(1.03);
+  --map-filter:grayscale(1) invert(.9) sepia(.35) contrast(.92);
+  --display:"Cormorant Garamond", "Times New Roman", serif;
+  --display-weight:600; --display-case:none; --display-track:0;
+  --body:"Manrope", "Segoe UI", system-ui, sans-serif;
+  --radius:2px; --radius-btn:2px;
+  --night-bg:#0B0A09; --night-ink:#F6F1E8; --night-muted:#E2DACB; --night-fade:rgba(8,7,6,.86); --night-clear:rgba(8,7,6,0);
+  --dock-shadow:rgba(0,0,0,.35);
+  --max:1240px; --gutter:clamp(16px,4vw,48px);
+  --step-0:clamp(18px,1.05rem + .25vw,20px);
+  --step-1:clamp(21px,1.2rem + .5vw,24px);
+  --step-2:clamp(28px,1.4rem + 1.4vw,40px);
+  --step-3:clamp(34px,1.2rem + 3vw,66px);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{overflow-x:clip}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:var(--step-0);line-height:1.6;transition:background-color .4s ease,color .4s ease}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:var(--display-weight);text-transform:var(--display-case);letter-spacing:var(--display-track);line-height:1.08;margin:0;overflow-wrap:break-word;min-width:0;color:var(--ink);text-wrap:balance}
+p{margin:0}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+:where(a,button,iframe):focus-visible{outline:3px solid var(--accent);outline-offset:3px;transition:none}
+html:not([lang="uz"]) [data-l="uz"]{display:none !important}
+html[lang="uz"] [data-l="ru"]{display:none !important}
+
+
+/* --- шапка --- */
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:20px}
+.mark{display:flex;flex-direction:column;text-decoration:none;line-height:1}
+.mark b{font-family:var(--display);font-weight:var(--display-weight);font-size:34px;letter-spacing:.06em;color:var(--accent-ink)}
+.mark span{font-size:15px;color:var(--muted);margin-top:4px}
+.top-right{display:flex;align-items:center;gap:12px}
+.lang{display:flex;border:1px solid var(--line);border-radius:var(--radius-btn);overflow:hidden}
+.lang button{font:inherit;font-size:16px;font-weight:700;color:var(--muted);background:transparent;border:0;min-width:48px;min-height:44px;cursor:pointer;transition:color .2s ease,background-color .2s ease}
+.lang button[aria-pressed="true"]{color:var(--on-accent);background:var(--accent)}
+.top .top-call{display:none}
+
+/* --- кнопки --- */
+.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:56px;padding:0 28px;border-radius:var(--radius-btn);font-weight:700;font-size:var(--step-0);text-decoration:none;border:1px solid var(--accent);transition:background-color .2s ease,color .2s ease,transform .2s ease}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-main{background:var(--accent);color:var(--on-accent)}
+.btn-main:hover{background:var(--accent-ink);border-color:var(--accent-ink)}
+.btn-main:active{transform:translateY(1px)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--accent)}
+.btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed;border-style:dashed}
+
+/* --- первый экран: две двери --- */
+.hero .wrap{display:grid;gap:28px;padding-block:8px 56px}
+.hero-text{display:grid;gap:20px;align-content:center;min-width:0}
+.hero h1{font-size:var(--step-3)}
+.hero-lead{font-size:var(--step-1);color:var(--muted);max-width:32ch}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+.doors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;min-width:0}
+.door{position:relative;display:block;aspect-ratio:3/4.4;overflow:hidden;border-radius:var(--radius);text-decoration:none;color:var(--door-ink);isolation:isolate;background:var(--surface)}
+.door img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:var(--photo-filter)}
+.door-him img{object-position:50% 40%}
+.door-her img{object-position:45% 30%}
+.door::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(9,8,6,0) 52%,var(--shade) 100%)}
+.door::after{content:"";position:absolute;inset:10px;z-index:2;border:1px solid var(--accent);border-radius:calc(var(--radius) * .6);opacity:.75;pointer-events:none;transition:opacity .4s ease}
+.door:hover::after{opacity:1}
+.door-text{position:absolute;z-index:3;left:24px;right:24px;bottom:24px;display:grid;gap:8px}
+.door h2{font-size:clamp(30px,1.4rem + 2.4vw,56px);color:var(--door-ink)}
+.door p{font-size:16px;line-height:1.4;color:var(--door-ink);opacity:.88}
+.door .go{font-size:16px;font-weight:700;color:var(--door-ink);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:5px;text-decoration-thickness:2px;margin-top:4px}
+
+/* --- услуги --- */
+.section{padding-block:clamp(64px,8vw,120px)}
+.head{display:grid;gap:12px;margin-bottom:clamp(32px,4vw,56px);max-width:44rem}
+.head h2{font-size:var(--step-2)}
+.head p{color:var(--muted)}
+.halls{display:grid;gap:clamp(40px,5vw,72px)}
+.hall{min-width:0;scroll-margin-top:24px}
+.hall-title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-bottom:16px;border-bottom:2px solid var(--accent)}
+.hall-title h3{font-size:var(--step-2)}
+.hall-title > span{font-size:16px;color:var(--muted)}
+.menu{list-style:none;margin:0;padding:0}
+.menu li{display:flex;align-items:baseline;gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}
+.menu .what{flex:1 1 auto;min-width:0}
+.menu .what small{display:block;font-size:16px;color:var(--muted);line-height:1.45;margin-top:2px}
+.menu .price{flex:none;font-weight:700;color:var(--accent-ink);white-space:nowrap;text-align:right}
+.menu .price em{display:block;font-style:normal;font-weight:500;font-size:14px;color:var(--muted)}
+.note{margin-top:24px;font-size:16px;color:var(--muted);max-width:40rem}
+
+/* --- наши залы --- */
+.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.shot{margin:0;position:relative;overflow:hidden;border-radius:var(--radius);background:var(--surface);isolation:isolate}
+.shot-wide{grid-column:1/-1}
+.shot img{width:100%;height:100%;aspect-ratio:3/4;object-fit:cover;filter:var(--photo-filter)}
+.shot-wide img{aspect-ratio:16/9}
+.shot::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,8,6,0) 60%,var(--shade) 100%)}
+.shot figcaption{position:absolute;z-index:2;left:16px;right:16px;bottom:14px;font-family:var(--display);font-weight:600;font-size:var(--step-1);line-height:1.2;color:var(--door-ink)}
+@media (min-width:760px){.shots{grid-template-columns:1.6fr 1fr 1fr;gap:16px}.shot-wide{grid-column:auto}.shot img,.shot-wide img{aspect-ratio:auto;height:100%;min-height:440px}}
+
+/* --- работы --- */
+.works{columns:2;column-gap:12px}
+.works figure{margin:0 0 12px;break-inside:avoid;position:relative;overflow:hidden;border-radius:var(--radius);background:var(--surface)}
+.works img{width:100%;height:auto;filter:var(--photo-filter)}
+.works figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 12px 10px;font-size:15px;line-height:1.3;color:var(--door-ink);background:linear-gradient(180deg,rgba(9,8,6,0),var(--shade))}
+@media (min-width:760px){.works{columns:3;column-gap:16px}.works figure{margin-bottom:16px}}
+.ig-link{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;color:var(--accent-ink);border:1px solid var(--line);border-radius:var(--radius-btn)}
+.ig-link:hover{border-color:var(--accent)}
+.ig-link svg{width:24px;height:24px}
+.note a,.foot a{text-decoration-color:var(--accent);text-underline-offset:4px}
+.book .stack .btn{flex:1 1 240px}
+
+/* --- отзывы --- */
+.ratings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:clamp(32px,4vw,48px)}
+.rating{display:grid;gap:2px;padding:20px 24px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);text-decoration:none;transition:border-color .2s ease}
+.rating:hover{border-color:var(--accent)}
+.rating b{font-family:var(--display);font-weight:var(--display-weight);font-size:clamp(44px,2rem + 2vw,64px);line-height:1;color:var(--accent-ink)}
+.rating span{font-size:16px;color:var(--muted)}
+.quotes{display:grid;gap:clamp(28px,3vw,40px)}
+.quote{margin:0;display:grid;gap:12px;padding-left:20px;border-left:2px solid var(--accent)}
+.quote p{font-family:var(--display);font-weight:500;font-size:var(--step-1);line-height:1.35;text-transform:none;letter-spacing:0}
+.quote footer{font-size:16px;color:var(--muted)}
+
+/* --- как добраться --- */
+.visit-grid{display:grid;gap:clamp(28px,4vw,56px)}
+.map{min-width:0;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--surface);aspect-ratio:4/3}
+.map iframe{display:block;width:100%;height:100%;border:0;filter:var(--map-filter)}
+.facts{display:grid;gap:24px;align-content:start;min-width:0}
+.fact{display:grid;gap:2px}
+.fact > span{font-size:16px;color:var(--muted)}
+.fact b{font-weight:700;font-size:var(--step-1);line-height:1.35}
+.fact a{text-decoration-color:var(--accent);text-underline-offset:4px}
+.routes{display:flex;flex-wrap:wrap;gap:12px}
+.routes a{white-space:nowrap;display:inline-flex;align-items:center;min-height:48px;padding:0 20px;border:1px solid var(--line);border-radius:var(--radius-btn);text-decoration:none;font-size:17px;font-weight:500;transition:border-color .2s ease}
+.routes a:hover{border-color:var(--accent)}
+.stack{display:flex;flex-wrap:wrap;gap:12px}
+
+/* --- подвал --- */
+.foot{border-top:1px solid var(--line);padding-block:48px 120px;color:var(--muted);font-size:16px}
+.foot .wrap{display:grid;gap:20px}
+.foot .mark b{font-size:44px}
+.motto{font-family:var(--display);font-size:var(--step-1);color:var(--ink);max-width:34rem;text-transform:none;letter-spacing:0}
+
+/* --- нижняя панель телефона --- */
+.js .dock{transform:translateY(140%);opacity:0}
+.dock{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:8px;padding:8px;background:var(--surface);border-radius:var(--radius);box-shadow:0 12px 30px var(--dock-shadow);transition:transform .35s ease,opacity .35s ease}
+.js .dock.on{transform:none;opacity:1}
+.dock .btn{min-height:52px;padding:0 12px;font-size:17px}
+
+@media (min-width:760px){
+  .halls{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .quotes{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .ratings{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .visit-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}
+  .top .top-call{display:inline-flex;min-height:48px;padding:0 20px;font-size:17px}
+  .dock{display:none}
+}
+@media (min-width:1000px){
+  .hero .wrap{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:center;padding-block:12px 72px}
+  .doors{gap:16px}
+  .doors{height:clamp(460px,calc(100svh - 230px),640px)}
+  .door{aspect-ratio:auto;height:100%}
+  .door-him img{object-position:50% 35%}
+  .hero-text{padding-bottom:24px}
+}
+@media (max-width:759px){
+  .hero .wrap{gap:24px;padding-block:4px 48px}
+  .hero-text{gap:16px}
+  .hero-actions .btn-main{flex:1 1 100%}
+  .hero-actions .btn-ghost{display:none}
+  .door{aspect-ratio:3/4}
+          .top .wrap{padding-block:16px}
+  .mark b{font-size:30px}
+}
+@media (max-width:759px){
+  .ratings{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .rating{padding:16px 12px}
+  .rating b{font-size:40px}
+  .rating span{font-size:15px;line-height:1.35}
+}
+@media (max-width:420px){
+  .door-text{left:16px;right:16px;bottom:16px}
+  .door p{display:none}
+    }
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none !important;animation:none !important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top" id="top" aria-label="Aurum, наверх">
+      <b>AURUM</b>
+      <span>Go&#700;zallik saloni</span>
+    </a>
+    <div class="top-right">
+      <div class="lang" role="group" aria-label="Язык">
+        <button type="button" data-lang="ru" aria-pressed="true">RU</button>
+        <button type="button" data-lang="uz" aria-pressed="false">UZ</button>
+      </div>
+      <a class="ig-link" href="https://www.instagram.com/aurum_ttz_beauty_saloon" target="_blank" rel="noopener" aria-label="Instagram салона"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
+      <a class="btn btn-main top-call" href="tel:+998993012221">
+        <span data-l="ru">Позвонить</span><span data-l="uz">Qo&#699;ng&#699;iroq qilish</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap">
+    <div class="hero-text">
+      <h1 id="h1"><span data-l="ru">Женский салон и барбершоп под одной вывеской</span><span data-l="uz">Ayollar saloni va barbershop bir peshlavha ostida</span></h1>
+      <p class="hero-lead"><span data-l="ru">Два зала на первом этаже, Буюк Ипак Йули, 475.</span><span data-l="uz">Birinchi qavatda ikki zal, Buyuk Ipak Yo&#699;li, 475.</span></p>
+      <div class="hero-actions">
+        <a class="btn btn-main" id="heroCall" href="#book">
+          <span data-l="ru">Записаться</span><span data-l="uz">Yozilish</span>
+        </a>
+        <a class="btn btn-ghost" href="#visit"><span data-l="ru">Как добраться</span><span data-l="uz">Qanday borish mumkin</span></a>
+      </div>
+    </div>
+
+    
+    <div class="doors">
+      <a class="door door-her" href="#her">
+        <img src="assets/her.webp" alt="Женский зал Aurum: белый кирпич и портрет на стене" width="780" height="1144" fetchpriority="high">
+        <span class="door-text">
+          <h2><span data-l="ru">Для неё</span><span data-l="uz">Ayollar uchun</span></h2>
+          <p><span data-l="ru">Волосы, ногти, макияж</span><span data-l="uz">Soch, tirnoq, makiyaj</span></p>
+          <span class="go"><span data-l="ru">Женский зал</span><span data-l="uz">Ayollar zali</span></span>
+        </span>
+      </a>
+      <a class="door door-him" href="#him">
+        <img src="assets/him.webp" alt="Мужской зал: роспись Barbershop Aurum на стене" width="700" height="1027" fetchpriority="high">
+        <span class="door-text">
+          <h2><span data-l="ru">Для него</span><span data-l="uz">Erkaklar uchun</span></h2>
+          <p><span data-l="ru">Стрижка, укладка, бритьё</span><span data-l="uz">Soch olish, turmaklash, soqol olish</span></p>
+          <span class="go"><span data-l="ru">Барбершоп</span><span data-l="uz">Barbershop</span></span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services" aria-labelledby="sv">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="sv"><span data-l="ru">Услуги</span><span data-l="uz">Xizmatlar</span></h2>
+      <p><span data-l="ru">Два отдельных зала: у каждого свои мастера и своя атмосфера.</span><span data-l="uz">Ikki alohida zal: har birining o&#699;z ustalari va o&#699;z muhiti bor.</span></p>
+    </div>
+    <div class="halls">
+      <div class="hall" id="her">
+        <div class="hall-title"><h3><span data-l="ru">Женский зал</span><span data-l="uz">Ayollar zali</span></h3><span>Aurum Hairdressing</span></div>
+        <ul class="menu">
+          <li><span class="what"><span data-l="ru">Стрижка</span><span data-l="uz">Soch kesish</span></span>
+            <span class="price"><span data-l="ru">от 50 000 сум</span><span data-l="uz">50 000 so&#699;mdan</span></span></li>
+          <li><span class="what"><span data-l="ru">Вечерние и свадебные причёски</span><span data-l="uz">Kechki va to&#699;y soch turmaklari</span><small data-l="ru">плетение из своих волос, прикорневой объём</small><small data-l="uz">o&#699;z sochidan o&#699;rish, ildizdan hajm berish</small></span><span class="price"><span data-l="ru">цена по запросу</span><span data-l="uz">narxi so&#699;rov bo&#699;yicha</span></span></li>
+          <li><span class="what"><span data-l="ru">Сложное окрашивание</span><span data-l="uz">Sochni murakkab bo&#699;yash</span></span><span class="price"><span data-l="ru">цена по запросу</span><span data-l="uz">narxi so&#699;rov bo&#699;yicha</span></span></li>
+          <li><span class="what"><span data-l="ru">Наращивание волос</span><span data-l="uz">Soch uzaytirish</span></span><span class="price"><span data-l="ru">цена по запросу</span><span data-l="uz">narxi so&#699;rov bo&#699;yicha</span></span></li>
+          <li><span class="what"><span data-l="ru">Маникюр и педикюр</span><span data-l="uz">Manikyur va pedikyur</span><small data-l="ru">ногтевой сервис, наращивание ногтей</small><small data-l="uz">tirnoq parvarishi, tirnoq uzaytirish</small></span><span class="price"><span data-l="ru">цена по запросу</span><span data-l="uz">narxi so&#699;rov bo&#699;yicha</span></span></li>
+          <li><span class="what"><span data-l="ru">Вечерний макияж</span><span data-l="uz">Kechki makiyaj</span></span><span class="price"><span data-l="ru">цена по запросу</span><span data-l="uz">narxi so&#699;rov bo&#699;yicha</span></span></li>
+          <li><span class="what"><span data-l="ru">Восковая депиляция</span><span data-l="uz">Mum bilan depilyatsiya</span></span><span class="price"><span data-l="ru">цена по запросу</span><span data-l="uz">narxi so&#699;rov bo&#699;yicha</span></span></li>
+          <li><span class="what"><span data-l="ru">Прокалывание ушей</span><span data-l="uz">Quloq teshish</span></span><span class="price"><span data-l="ru">цена по запросу</span><span data-l="uz">narxi so&#699;rov bo&#699;yicha</span></span></li>
+        </ul>
+      </div>
+      <div class="hall" id="him">
+        <div class="hall-title"><h3><span data-l="ru">Мужской зал</span><span data-l="uz">Erkaklar zali</span></h3><span>Barbershop Aurum</span></div>
+        <ul class="menu">
+          <li><span class="what"><span data-l="ru">Мужская стрижка</span><span data-l="uz">Erkaklar soch olishi</span></span>
+            <span class="price"><span data-l="ru">от 50 000 сум</span><span data-l="uz">50 000 so&#699;mdan</span></span></li>
+          <li><span class="what"><span data-l="ru">Укладка</span><span data-l="uz">Soch turmaklash</span></span><span class="price"><span data-l="ru">цена по запросу</span><span data-l="uz">narxi so&#699;rov bo&#699;yicha</span></span></li>
+          <li><span class="what"><span data-l="ru">Бритьё</span><span data-l="uz">Soqol olish</span></span><span class="price"><span data-l="ru">цена по запросу</span><span data-l="uz">narxi so&#699;rov bo&#699;yicha</span></span></li>
+        </ul>
+        
+      </div>
+    </div>
+    <p class="note"><span data-l="ru">Точную стоимость назовём при записи.</span><span data-l="uz">Aniq narxni navbatga yozilayotganingizda aytamiz.</span></p>
+  </div>
+</section>
+
+
+<section class="section about" id="about" aria-labelledby="ab">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="ab"><span data-l="ru">Наши залы</span><span data-l="uz">Bizning zallar</span></h2>
+      <p><span data-l="ru">Вход с улицы, первый этаж. Рядом рынок Навруз.</span><span data-l="uz">Kirish ko&#699;chadan, birinchi qavat. Yonimizda Navro&#699;z bozori.</span></p>
+    </div>
+    <div class="shots">
+      <figure class="shot shot-wide"><img src="assets/hall-men.webp" alt="Мужской зал: рабочие места мастеров, кресла и мойка" width="1400" height="1050" loading="lazy"><figcaption><span data-l="ru">Мужской зал, Barbershop Aurum</span><span data-l="uz">Erkaklar zali, Barbershop Aurum</span></figcaption></figure>
+      <figure class="shot"><img src="assets/hall-women.webp" alt="Женский зал Aurum Hairdressing: зеркала, кресла и белый кирпич" width="1400" height="1050" loading="lazy"><figcaption><span data-l="ru">Женский зал, Aurum Hairdressing</span><span data-l="uz">Ayollar zali, Aurum Hairdressing</span></figcaption></figure>
+      <figure class="shot"><img src="assets/nail-corner.webp" alt="Ногтевой уголок: стол мастера и полки с гель-лаками" width="1200" height="900" loading="lazy"><figcaption><span data-l="ru">Ногтевой уголок, Nail art</span><span data-l="uz">Tirnoq burchagi, Nail art</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="works" aria-labelledby="wk">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="wk"><span data-l="ru">Работы мастеров</span><span data-l="uz">Ustalar ishlari</span></h2>
+      <p><span data-l="ru">Ногтевой сервис: фото из Instagram салона.</span><span data-l="uz">Tirnoq xizmati: salon Instagramidan suratlar.</span></p>
+    </div>
+    <div class="works">
+      <figure><img src="assets/work-nude.webp" alt="Наращивание ногтей, нюдовое покрытие с надписью" width="664" height="750" loading="lazy"><figcaption><span data-l="ru">Наращивание, покрытие в нюд</span><span data-l="uz">Tirnoq uzaytirish, nyud qoplama</span></figcaption></figure>
+      <figure><img src="assets/work-purple.webp" alt="Длинные ногти с фиолетовым мраморным дизайном" width="600" height="750" loading="lazy"><figcaption><span data-l="ru">Дизайн «мрамор»</span><span data-l="uz">«Marmar» dizayni</span></figcaption></figure>
+      <figure><img src="assets/work-french.webp" alt="Френч с серебристым блеском" width="749" height="690" loading="lazy"><figcaption><span data-l="ru">Френч с блёстками</span><span data-l="uz">Yaltiroq fransuz manikyuri</span></figcaption></figure>
+      <figure><img src="assets/work-black.webp" alt="Чёрные ногти с зеркальной втиркой" width="751" height="720" loading="lazy"><figcaption><span data-l="ru">Чёрный с блеском</span><span data-l="uz">Yaltiroq qora</span></figcaption></figure>
+      <figure><img src="assets/work-white.webp" alt="Белый маникюр с серебристой полосой" width="749" height="690" loading="lazy"><figcaption><span data-l="ru">Белое покрытие, серебряная полоса</span><span data-l="uz">Oq qoplama, kumush chiziq</span></figcaption></figure>
+      <figure><img src="assets/work-before-after.webp" alt="Ногти до и после обновления" width="489" height="750" loading="lazy"><figcaption><span data-l="ru">До и после</span><span data-l="uz">Oldin va keyin</span></figcaption></figure>
+    </div>
+    <p class="note"><a href="https://www.instagram.com/aurum_ttz_beauty_saloon" target="_blank" rel="noopener"><span data-l="ru">Больше работ в Instagram</span><span data-l="uz">Instagramda ko&#699;proq ishlar</span></a></p>
+  </div>
+</section>
+
+<section class="section" id="reviews" aria-labelledby="rv">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="rv"><span data-l="ru">Что пишут гости</span><span data-l="uz">Mijozlar fikri</span></h2>
+    </div>
+    <div class="ratings">
+      <a class="rating" href="https://www.google.com/maps/place/Aurum+Go'zallik+Saloni/@41.3531138,69.3868817,17z" target="_blank" rel="noopener"><b>5,0</b><span><span data-l="ru">Google Карты, 14 отзывов</span><span data-l="uz">Google Xaritalar, 14 ta sharh</span></span></a>
+      <a class="rating" href="https://yandex.com/maps/org/aurum/127717096437/reviews/" target="_blank" rel="noopener"><b>4,5</b><span><span data-l="ru">Яндекс Карты, 9 оценок</span><span data-l="uz">Yandex Xaritalar, 9 ta baho</span></span></a>
+      <a class="rating" href="https://2gis.uz/tashkent/search/Aurum%20Buyuk%20Ipak%20Yuli%20475/firm/70000001037280175/69.386866%2C41.353091" target="_blank" rel="noopener"><b>5,0</b><span><span data-l="ru">2ГИС, 1 оценка</span><span data-l="uz">2GIS, 1 ta baho</span></span></a>
+    </div>
+    
+    <div class="quotes">
+      <figure class="quote"><p>«Лучший салон в районе. Всем рекомендую!»</p><footer><span data-l="ru">Гость, Яндекс Карты</span><span data-l="uz">Mehmon, Yandex Xaritalar</span></footer></figure>
+      <figure class="quote"><p>«Очень хороший салон и мужской и женский ряд профессионалов которые выполняют свою работу делают ее на 100 %… я всегда доволен тем что в Barbershop встречает улыбчивый вежливый персонал»</p><footer><span data-l="ru">Гость, Google Карты</span><span data-l="uz">Mehmon, Google Xaritalar</span></footer></figure>
+      <figure class="quote"><p>«Быстро, аккуратно и не дорого»</p><footer><span data-l="ru">Гость, Яндекс Карты</span><span data-l="uz">Mehmon, Yandex Xaritalar</span></footer></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section book" id="book" aria-labelledby="bk">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="bk"><span data-l="ru">Записаться</span><span data-l="uz">Yozilish</span></h2>
+      <p><span data-l="ru">Напишите в нужный зал или позвоните. Точное время и стоимость назовём при записи.</span><span data-l="uz">Kerakli zalga yozing yoki qo&#699;ng&#699;iroq qiling. Aniq vaqt va narxni yozilganda aytamiz.</span></p>
+    </div>
+    <div class="stack">
+      <a class="btn btn-main" href="https://t.me/AURUMTTZ" target="_blank" rel="noopener"><span data-l="ru">Женский зал, Telegram</span><span data-l="uz">Ayollar zali, Telegram</span></a>
+      <a class="btn btn-main" href="https://t.me/TTZ_AURUM_BARBERSHOP" target="_blank" rel="noopener"><span data-l="ru">Барбершоп, Telegram</span><span data-l="uz">Barbershop, Telegram</span></a>
+      <a class="btn btn-ghost" href="https://ig.me/m/aurum_ttz_beauty_saloon" target="_blank" rel="noopener"><span data-l="ru">Написать в Instagram</span><span data-l="uz">Instagramga yozish</span></a>
+      <a class="btn btn-ghost" href="tel:+998993012221"><span data-l="ru">Позвонить</span><span data-l="uz">Qo&#699;ng&#699;iroq qilish</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="visit" aria-labelledby="vs">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="vs"><span data-l="ru">Как нас найти</span><span data-l="uz">Bizni qanday topish mumkin</span></h2>
+    </div>
+    <div class="visit-grid">
+      <div class="map">
+        <iframe title="Карта: Aurum, Буюк Ипак Йули, 475" src="https://www.openstreetmap.org/export/embed.html?bbox=69.3808%2C41.3496%2C69.3930%2C41.3566&amp;layer=mapnik&amp;marker=41.3531138%2C69.3868817"></iframe>
+      </div>
+      <div class="facts">
+        <div class="fact"><span data-l="ru">Адрес</span><span data-l="uz">Manzil</span>
+          <b><span data-l="ru">Ташкент, Мирзо-Улугбекский район, ул. Буюк Ипак Йули, 475, 1 этаж</span><span data-l="uz">Toshkent, Mirzo Ulug&#699;bek tumani, Buyuk Ipak Yo&#699;li ko&#699;chasi, 475, 1-qavat</span></b></div>
+        <div class="fact"><span data-l="ru">Телефоны</span><span data-l="uz">Telefonlar</span>
+          <b><a href="tel:+998993012221">+998 99 301 22 21</a><br><a href="tel:+998909212221">+998 90 921 22 21</a></b></div>
+                <div class="fact"><span data-l="ru">Часы работы</span><span data-l="uz">Ish vaqti</span>
+          <b><span data-l="ru">Ежедневно, 08:00–20:00</span><span data-l="uz">Har kuni, 08:00–20:00</span></b></div>
+        <div class="stack">
+          <a class="btn btn-main" href="tel:+998993012221"><span data-l="ru">Позвонить</span><span data-l="uz">Qo&#699;ng&#699;iroq qilish</span></a>
+          <a class="btn btn-ghost" href="https://www.instagram.com/aurum_ttz_beauty_saloon" target="_blank" rel="noopener">Instagram</a>
+        </div>
+        <div class="routes">
+          <a href="https://yandex.uz/maps/?pt=69.3868817,41.3531138&amp;z=17&amp;l=map" target="_blank" rel="noopener"><span data-l="ru">Яндекс Карты</span><span data-l="uz">Yandex Xaritalar</span></a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=41.3531138,69.3868817" target="_blank" rel="noopener">Google Maps</a>
+          <a href="https://2gis.uz/tashkent/search/Aurum%20Buyuk%20Ipak%20Yuli%20475/firm/70000001037280175/69.386866%2C41.353091" target="_blank" rel="noopener"><span data-l="ru">2ГИС</span><span data-l="uz">2GIS</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="mark" href="#top"><b>AURUM</b><span>Go&#700;zallik saloni</span></a>
+    <p class="motto"><span data-l="ru">«Мы не продаём услуги, мы дарим эмоции»</span><span data-l="uz">«Biz xizmat sotmaymiz, biz hissiyot ulashamiz»</span></p>
+
+    <p><a href="https://www.instagram.com/aurum_ttz_beauty_saloon" target="_blank" rel="noopener">Instagram: aurum_ttz_beauty_saloon</a></p>
+    <p><span data-l="ru">Фото: от владельцев салона и из их Instagram.</span><span data-l="uz">Suratlar: salon egalaridan va ularning Instagramidan.</span></p>
+  </div>
+</footer>
+
+<div class="dock" id="dock" aria-hidden="true">
+  <a class="btn btn-main" href="tel:+998993012221" tabindex="-1"><span data-l="ru">Позвонить</span><span data-l="uz">Qo&#699;ng&#699;iroq</span></a>
+  <a class="btn btn-ghost" href="#book" tabindex="-1"><span data-l="ru">Записаться</span><span data-l="uz">Yozilish</span></a>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement; root.classList.add('js'); var q=new URLSearchParams(location.search);
+  function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+  function setLang(l){
+    if(!/^(ru|uz)$/.test(l))return;
+    root.setAttribute('lang',l);
+    document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.lang===l))});
+    var T={ru:["Aurum: салон красоты и барбершоп в Ташкенте","Aurum Go'zallik Saloni: женский салон и барбершоп в Ташкенте, Буюк Ипак Йули, 475."],uz:["Aurum: goʻzallik saloni va barbershop, Toshkent","Aurum Goʻzallik Saloni: Toshkentdagi ayollar saloni va barbershop, Buyuk Ipak Yoʻli, 475-uy."]};
+    document.title=T[l][0]; var m=document.querySelector('meta[name=description]'); if(m)m.setAttribute('content',T[l][1]);
+    store('aurum-lang',l);
+  }
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang)})});
+  setLang(q.get('lang')||store('aurum-lang')||'ru');
+
+  var dock=document.getElementById('dock'), cta=document.getElementById('heroCall');
+  if('IntersectionObserver' in window && dock && cta){
+    new IntersectionObserver(function(e){
+      var on=!e[0].isIntersecting && e[0].boundingClientRect.top<0;
+      dock.classList.toggle('on',on); dock.setAttribute('aria-hidden',String(!on));
+      dock.querySelectorAll('a').forEach(function(a){a.tabIndex=on?0:-1});
+    }).observe(cta);
+  }
+})();
+</script>
+</body>
+</html>
